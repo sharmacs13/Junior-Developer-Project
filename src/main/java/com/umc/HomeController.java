@@ -74,14 +74,15 @@ public class HomeController {
 		{
 			return new ModelAndView("login.jsp", "error", "Email is not valid!!");
 		}
-		if(!repo.findByEmail(ue.getEmail()).get(0).getPassword().equals(ue.getPassword()))
-		{
-			return new ModelAndView("login.jsp", "error", "Password doesn't match!");
-		}
-//		if(bindingResult.hasErrors())
-//		{
-//			return new ModelAndView("login.jsp", "error", "User doesn't exist");
-//		}
+		
+			if(repo.findByEmail(ue.getEmail()).size() == 0)
+			{
+				return new ModelAndView("login.jsp", "error", "User doesn't exist");
+			}
+			if(!repo.findByEmail(ue.getEmail()).get(0).getPassword().equals(ue.getPassword()))
+			{
+				return new ModelAndView("login.jsp", "error", "Password doesn't match!");
+			}
 		saveToDB(LOGIN, repo.findByEmail(ue.getEmail()).get(0).getUid());
 		model.addAttribute("email", ue.getEmail());
 		model.addAttribute("name", repo.findByEmail(ue.getEmail()).get(0).getUsername());
@@ -112,14 +113,14 @@ public class HomeController {
 		{
 			return new ModelAndView("register.jsp", "error", "Name, Email, Password, Address, description field cannot be empty!!");
 		}
-		if(repo.findByEmail(ue.getEmail()).get(0).getAddress().equals("") || repo.findByEmail(ue.getEmail()).get(0).getAddress() == null)
+		if(repo.findByEmail(ue.getEmail()).size() == 0)
 		{
 			repo.save(ue);
 			return new ModelAndView("registerSuccess.jsp");
 		}
 		else
 		{
-			return new ModelAndView("error.jsp", "error", "Email Id alread exsists");
+			return new ModelAndView("error.jsp", "error", "Email Id already exsists");
 		}
 	}
 	

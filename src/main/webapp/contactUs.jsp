@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Contact Us Form</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <style>
@@ -51,12 +51,11 @@ input[type=submit]:hover {
 <a href="logout">Logout</a>
 </form>
 <br>
-<h3>Contact Form</h3>
 ${msg}
 <br>
 <div class="container">
   <form action="contact" method = "post">
-    <label for="name">Name</label>
+    <label for="name">Email</label>
     <input type="text" id="email" name="email" value = "${email}" readonly>
 
     <label for="subject">Subject</label>

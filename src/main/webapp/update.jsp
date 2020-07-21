@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Update Information</title>
 </head>
 <body>
 <%
@@ -20,11 +20,11 @@
 <br>
 <form action = "update" method="post">
 		<br>
-			Name: <input type = "text" name = "username"><br>
-			Email: <input type = "text" name = "email" value = "${email}" readonly style="min-width:10px;"><br>
-			Password: <input type = "text" name = "password"><br>
-			Address: <input type = "text" name = "address"><br>
-			<input type = "submit" value = "Update"><br>
+			Name: <input type = "text" name = "username"><br><br><br>
+			Email: <input type = "text" name = "email" value = "${email}" readonly style="min-width:10px;"><br><br><br>
+			Password: <input type = "text" name = "password"><br><br><br>
+			Address: <input type = "text" name = "address"><br><br><br>
+			<input type = "submit" value = "Update"><br><br><br>
 		</form>
 	<form action = "login" method="post">
 <input type = "submit" value = "Cancel">
